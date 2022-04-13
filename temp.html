@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Main Page</title>
+        <style>
+
+            .topnav {
+            overflow: auto;
+            background-color: #e9e9e9;
+            width: 100%;
+            }
+
+            .topnav a {
+            float: left;
+            display: block;
+            color: black;
+            text-align: left;
+            padding: 10px 12px;
+            text-decoration: none;
+            font-size: 17px;
+            width: 120px;
+            }
+
+            .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+            }
+
+            .topnav a.active {
+            background-color: #2196F3;
+            color: white;
+            }
+
+            .topnav .login-container {
+            float: right;
+            }
+
+            .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: none;
+            width:120px;
+            }
+
+            .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: #555;
+            color: white;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            }
+
+            .topnav .login-container button:hover {
+            background-color: green;
+            }
+
+            @media screen and (max-width: 600px) {
+            .topnav .login-container {
+                float: none;
+                display: block;
+            }
+            .topnav a, .topnav input[type=text], .topnav .login-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+            .topnav input[type=text] {
+                border: 1px solid #ccc;  
+            }
+            }
+            
+            .container1{
+                position: absolute;
+                width: 100%;
+                height: 68vh;
+                animation: animate 16s ease-in-out infinite;
+            }
+            @keyframes animate{
+                0% {
+                        background-image: url('https://images.pond5.com/orange-green-technology-background-070787698_prevstill.jpeg');
+                }
+
+                25% {
+                    background-image: url('https://www.rd.ntt/_assets/img/dtl/dtl_1.png');
+                }
+                
+                50% {
+                    background-image: url('https://www.preezie.com/hubfs/addasdas.jpg');
+                }
+
+                75% {
+                    background-image: url('https://kzfixtures.com/wp-content/uploads/2021/10/Technology.jpg');
+                }
+
+                100% {
+                    background-image: url('https://warnerpr.com/wp-content/uploads/2020/05/women-tech-image.jpg');
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div calss = "container" style="height:100px;background-color:gold;">
+            <div class = "row">
+                <h2 style="text-align: center;"><b><i>🎀🎀WELCOME TO DO LIST🎀🎀</i></b></h2>
+            </div>
+        </div>
+        <div class="topnav">
+            <a class="active" href="/"><i  class="fa fa-fw fa-home" >Home</i></a>
+            <a href="/about"><i class="fa fa-fw fa-search" >About</i></a>
+            <a href="/contact"><i class="fa fa-fw fa-envelope">Contact</i></a>
+            <a href="/list"><i>List</i></a>
+            <a href="/task"><i>Task</i></a>
+        </div>
+        <div calss = "container" style="height:590px; background-image: url('https://images.pond5.com/orange-green-technology-background-070787698_prevstill.jpeg');">
+            <div class = "row">
+                <p style="text-align: center;font-size: larger;font-family: cursive;color: antiquewhite;" >
+                    <br/>
+                    <b>
+                        <i>
+                            <marquee behavior="scroll" direction="left" >I’M YOUR  TASK MANAGER. I’M HERE TO HELP YOU IN ORGANISING YOUR DAY TO DAY WORK IN MORE EFFICIENT WAY</marquee>
+                        </i>
+                    </b>
+                    <div class="container1">
+                        <div class="outer">
+                            <div calss="details"></div>
+                        </div>
+                    </div>
+                </p>
+            </div>	
+        </div>
+        <div calss = "container" style="height:40px;">
+            <h3 style="text-align:center;font-size: small;"><b><i</b>Copy Rights : WileyGroup6@2022</h3>
+        </div>
+    </body>
+</html>

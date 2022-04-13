@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+
+        h1{
+            font-size: x-large;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div style="margin-top: 50px;" class="ui container">
+        <div style="background-color:rgb(230, 24, 65);height: 50px;padding-top: 10px;">
+            <h1 class="ui center aligned header">✨✨Welcome to ToDo App Task_Page✨✨</h1>
+        </div>
+        <br>
+        <form class="ui form" action="/add" method="post">
+            <div class="field" style="padding-top: 10px;">
+                <label style="font-style: italic;font-size: larger;">Enter Taskname</label>
+                <input type="text" name="title" placeholder="Enter Task..."><br>
+            </div>
+            <button class="ui blue button" type="submit">Add</button>
+        </form>
+        <form class="ui form" action="/search" method="post">
+            <div class="field" style="padding-top: 10px;">
+                <label style="font-style: italic;font-size: larger;">Search By Taskname</label>
+                <input type="text" name="name" placeholder="Enter name..."><br>
+            </div>
+            <button class="ui yellow button" type="search">Search</button>
+        </form>
+        <form class="ui form" action="/search_by_hash" method="post">
+            <div class="field" style="padding-top: 10px;">
+                <label style="font-style: italic;font-size: larger;">Search By Hashtag</label>
+                <input type="text" name="name" placeholder="Enter hashtag..."><br>
+            </div>
+            <button class="ui yellow button" type="search">Search</button>
+        </form>
+
+
+        <hr>
+        <h1 class="ui center aligned header" >🎀🎀🎀List of Tasks 🎀🎀🎀</h1>
+        {% for todo in todo_list %}
+        <div class="ui segment">
+            <p class="ui big header">{{todo.id }} | {{ todo.title }}</p>
+
+            {% if todo.complete == False %}
+            <span class="ui gray label">Not Complete</span>
+            <a class="ui blue button" href="/mac/{{ todo.id }}">Mark as Complete</a>
+
+            {% else %}
+            <span class="ui green label">Completed</span>
+            <a class="ui blue button" href="/mac/{{ todo.id }}" style="display: None;">Mark as Complete</a>
+            
+            {% endif %}
+            <a class="ui red button" href="/delete/{{ todo.id }}">Delete</a>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <input id="button" class="ui blue button" type="button" value="Update">
+            <form class="ui form" action="/updateTask/{{ todo.id }}" method="post">
+                <div id="nl" hidden>
+                    <input type="text" name="task" placeholder="Enter name...">
+                </div>
+            </form>
+            
+        </div>
+        {% endfor %}
+    </div>
+    <script type="text/javascript">
+        $("#button").click(function() {
+            $("#nl").show();
+        });
+    </script>
+</body>
+
+</html>

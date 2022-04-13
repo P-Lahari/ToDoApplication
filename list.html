@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+
+        h1{
+            font-size: x-large;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="margin-top: 50px;" class="ui container">
+        <div style="background-color:rgb(230, 24, 65);height: 50px;padding-top: 10px;">
+            <h1 class="ui center aligned header">✨✨Welcome to ToDo App List_Page✨✨</h1>
+        </div>
+
+        <form class="ui form" action="/addList" method="post">
+            <div class="field" style="padding-top: 10px;">
+                <label  style="font-style: italic;font-size: larger;">Enter Listname</label>
+                <input type="text" name="title" placeholder="Enter List..."><br>
+            </div>
+            <div class="field">
+                <label style="font-style: italic;font-size: large;">Enter List Items</label>
+                <input type="text" name="items" placeholder="Enter Items..."><br>
+            </div>
+            <button class="ui blue button" type="submit">Add</button>
+        </form>
+        <br>
+        <form class="ui form" action="/searchList" method="post">
+            <div class="field" style="padding-top: 10px;">
+                <label style="font-style: italic;font-size: larger;">Search By Listname</label>
+                <input type="text" name="title" placeholder="Enter name..."><br>
+            </div>
+            <button class="ui yellow button" type="search">Search</button>
+        </form>
+        <hr>
+        <h1 class="ui center aligned header" >🎀🎀🎀List of Lists ToDo 🎀🎀🎀</h1>
+        {% for todo in todo_list %}
+        <div class="ui segment">
+            <p class="ui big header">{{todo[0] }} | {{todo[1]}}</p>
+
+            {% for i in todo[2].split(" ")%}
+            <p>{{i}}</p>
+            
+            {% endfor %}
+            <a class="ui red button" href="/deleteList/{{ todo[0] }}">Delete</a>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <input id="button" class="ui blue button" type="button" value="Update">
+            <form class="ui form" action="/updateList/{{ todo[0] }}" method="post">
+                <div id="nl" hidden>
+                    <input type="text" name="list" placeholder="Enter name...">
+                </div>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    <script type="text/javascript">
+        $("#button").click(function() {
+            $("#nl").show();
+        });
+    </script>
+</body>
+
+</html>
